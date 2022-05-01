@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Predict Income</title>
-  <meta charset="UTF-8">
-  <title>Predict Insurance Bill</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -15,30 +13,32 @@
 </head>
 <body>
     <div class="login">
-       <h1>Predict Income</h1>
+       
 <header>INCOME CASSIFICATION</header>
 
 <form id="form" class="topBefore" action="/predict" method="POST">
 		
-		  <input id="age" type="text" placeholder="age" required/>
-		  <input id="workclass" type="text" placeholder="workclass" required/>
-		  <input id="education" type="text" placeholder="education" required/>
-          <input id="marital-status" type="text" placeholder="marital-status" required/>
-          <input id="occupation" type="text" placeholder="occupation" required/>
-          <input id="relationship" type="text" placeholder="relationship" required/>
-          <input id="race" type="text" placeholder="race" required/>
-          <input id="sex" type="text" placeholder="sex" required/>
-          <input id="capital-gain" type="text" placeholder="capital-gain" required/>
-          <input id="capital-loss" type="text" placeholder="capital-loss" required/>
-          <input id="hours-per-week" type="text" placeholder="hours-per-week" required/>
-          <input id="native-country" type="text" placeholder="native-country" required/>
-  <button id="submit" type="submit">GO!</button>
+		  <input id="age" name="age" type="number" placeholder="age" required/>
+		  <input id="workclass" name="workclass" type="text" placeholder="workclass" required/>
+		  <input id="education" name="education" type="text" placeholder="education" required/>
+          <input id="marital-status" name="marital-status" type="text" placeholder="marital-status" required/>
+          <input id="occupation" name="occupation" type="text" placeholder="occupation" required/>
+          <input id="relationship" name="relationship" type="text" placeholder="relationship" required/>
+          <input id="race" name="race" type="text" placeholder="race" required/>
+          <input id="sex" name="sex" type="text" placeholder="sex" required/>
+          <input id="capital-gain" name="capital-gain" type="number" placeholder="capital-gain" required/>
+          <input id="capital-loss" name="capital-loss" type="number" placeholder="capital-loss" required/>
+          <input id="hours-per-week" name="hours-per-week" type="number" placeholder="hours-per-week" required/>
+          <input id="native-country" name="native-country" type="text" placeholder="native-country" required/>
+  <input id="submit" type="submit" value="GO!!"></input>
   
 </form>
 
 
 
 </div>
+
+<header>{{pred}}</header>
 </body>
-{{pred}}
+
 </html>

@@ -1,6 +1,8 @@
 import pickle
+from unicodedata import numeric
 
 from flask import Flask,request, url_for, redirect, render_template, jsonify
+from numpy import True_
 import pandas as pd
 import pickle
 
@@ -18,6 +20,15 @@ def home():
 def predict():
     features = request.form.to_dict()
     print(request.get_json())
+    for key,feature in features.items():
+        if(feature.isnumeric()==True):
+            try:
+                features[key]= int(feature)
+            except ValueError:
+                features[key]= float(feature)
+                
+        else:
+            features[key]=" "+feature
     features['fnlwgt']=1
     features['education-num']=13
     data_unseen = pd.DataFrame(columns = cols)
@@ -38,8 +49,12 @@ def predict():
     #data_unseen.drop(columns=['income_ >50K', 'income_ <=50K'],inplace=True)   
     prediction = model.predict(data_unseen)
     prediction = int(prediction[0])
-    print(prediction)
-    return render_template('home.html',pred='Income >=50 k {}'.format(prediction))
+    ans=""
+    if(prediction==1):
+        ans='>=50k'
+    else:
+        ans='<50k'
+    return render_template('home.html',pred='Income {}'.format(ans))
 
 
 
